@@ -1,0 +1,68 @@
+import java.security.PublicKey;
+import java.util.IdentityHashMap;
+import java.util.concurrent.CountDownLatch;
+
+import edu.princeton.cs.algs4.StdIn;
+import edu.princeton.cs.algs4.StdOut;
+
+public class UF {
+
+	/**
+	 * UF(int n) initialize N sites with integer names(0 to n-1)
+	 * void union(int p,int q) add connection between p and q 
+	 * int find(int p ) component idertifier for p(0 to n-1)
+	 * boolean connected(int p,int q) return true if p and q are same componnet
+	 * int count() number of component
+	 * @param args
+	 */
+	private int[] id ;//id ararry declaration  这里只是声明 
+	private int count;  //声明 类中的变量
+	public  UF(int n) {  //初始化数组、initialize
+		     count =n;//count要赋初始值 
+		     id = new int[n];            //id数组要初始化
+		for (int i = 0; i < n; i++) {
+			id[i]=i;
+		}
+	}
+	
+	public int count() {//返回count
+	return count;	
+		
+	}
+	public int find(int p) { //找出节点的ID 
+	return id[p];
+	}
+	public void union(int p,int q) { //连接PQ、
+		int pid,qid;
+		pid=find(p);//找出P的id  
+		qid=find(q);//找出Q的id
+		// 如果id相等  不操作
+		if(pid==qid)
+			return;
+		for (int i = 0; i < id.length; i++) //将qid赋值给         所有id为 pid的 id!!!!而不是   将q id 赋值给 p id 
+		//找出所有等于PID的id 
+			if(id[i]==pid) id[i]=qid;
+			count--;	
+	}
+		
+		
+	
+	public boolean connected(int p,int q) {
+	return id[p]==id[q];
+	}
+	public static void main(String[] args) {
+	//创建Uf对象
+	  int N=StdIn.readInt();
+	  UF uf = new UF(N);
+	  while(!StdIn.isEmpty()){
+		  int p = StdIn.readInt();
+		  int q = StdIn.readInt();
+		  if( uf.connected(p,q)) //uf.方法 而不是直接用方法
+		     continue;
+		  uf.union(p,q);  
+	  }
+	  StdOut.println("conments number is "+uf.count());
+	}
+		
+
+}

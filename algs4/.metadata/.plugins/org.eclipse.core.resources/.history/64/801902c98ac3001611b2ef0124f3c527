@@ -1,0 +1,25 @@
+
+public class QuickSort {
+
+	public QuickSort() {
+		// TODO Auto-generated constructor stub
+	}
+    private Comparable a[];
+    private int partion(Comparable[] a,int lo,int hi){
+    	int i=lo,j=hi+1;
+        Comparable v=a[lo];
+    	while(true){
+    		
+    		
+    	}
+    	return j;
+    }
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

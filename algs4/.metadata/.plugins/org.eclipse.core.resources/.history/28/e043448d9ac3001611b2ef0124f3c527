@@ -1,0 +1,46 @@
+import edu.princeton.cs.algs4.StdOut;
+
+
+public class Quick3way {
+
+	public Quick3way() {
+		// TODO Auto-generated constructor stub
+	}
+    private void sort(Comparable[] a,int lo,int hi){
+    	int lt =lo,i=lo+1,gt= hi;
+    	if(lt>=gt) return ;
+    	Comparable v =a[lo];
+        int cmp=v.compareTo(a[i]); //a[lo]>a[i]  cmp>0;
+        while(i<=gt){
+    		if(cmp>0) exch(a,lt++,i++);
+    		else if(cmp<0) exch(a,i,gt--);
+    		else i++;
+    	}
+    }
+    private static void exch(Comparable[] a,int i,int j){
+    	Comparable tComparable=a[i];a[i]=a[j];a[j]=tComparable;
+    }
+    private static void show(Comparable[] a){
+    	
+    	for (int i = 0; i < a.length; i++) {
+			StdOut.println(a[i] +" ");
+		}
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		String[] a ={"c","d","h","d","d","a","s","a","c","t"};
+		
+		sort(a);
+		// if(isSorted(a))
+		 //StdOut.print("sorted");
+		//else {
+		sort(a);
+		show(a);
+			//}
+
+			}
+	}
+
+}
