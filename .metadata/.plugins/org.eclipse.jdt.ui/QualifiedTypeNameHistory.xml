@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="edu.princeton.cs.algs4.StdRandom"/>
+<fullyQualifiedTypeName name="java.awt.print.Printable"/>
+<fullyQualifiedTypeName name="MaxPQ"/>
+<fullyQualifiedTypeName name="OrderedArrayMaxPQ"/>
+<fullyQualifiedTypeName name="java.util.concurrent.Exchanger"/>
+<fullyQualifiedTypeName name="javax.crypto.spec.IvParameterSpec"/>
+<fullyQualifiedTypeName name="edu.princeton.cs.algs4.MaxPQ"/>
+<fullyQualifiedTypeName name="javax.management.openmbean.KeyAlreadyExistsException"/>
+<fullyQualifiedTypeName name="HeapMaxPQ"/>
+<fullyQualifiedTypeName name="java.nio.channels.Pipe.SinkChannel"/>
+<fullyQualifiedTypeName name="java.awt.RenderingHints.Key"/>
+<fullyQualifiedTypeName name="key"/>
+<fullyQualifiedTypeName name="java.lang.AbstractMethodError"/>
+<fullyQualifiedTypeName name="Key"/>
+<fullyQualifiedTypeName name="java.lang.Comparable"/>
+<fullyQualifiedTypeName name="java.lang.String"/>
+<fullyQualifiedTypeName name="edu.princeton.cs.algs4.StdOut"/>
+</qualifiedTypeNameHistroy>

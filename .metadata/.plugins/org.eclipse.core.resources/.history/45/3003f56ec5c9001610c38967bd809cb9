@@ -1,0 +1,49 @@
+import javax.crypto.spec.IvParameterSpec;
+
+import edu.princeton.cs.algs4.StdOut;
+
+public class UnorderedArrayMaxPQ<Key extends Comparable<Key>> {
+
+			private Key[] pq;
+			private int n;
+			public UnorderedArrayMaxPQ(int max){//create a priority queue of initial capacity
+				pq= (Key[]) new Comparable[max+1];		
+			}
+			public void insert(Key v){
+			pq[n++]=v;
+			}
+			
+			public Key delMax(){ //return and remove the lagrest one
+				for (int i = 0; i <n-1; i++) {
+			    	if(less(pq[n-1],pq[i] ))
+					exch(pq, n, i);
+				}
+				Key max=pq[n-1];
+				pq[n--]=null;
+				
+				return max;
+			}
+			public boolean isEmpty(){
+				return n==0;
+			}
+			public int size(){
+				return n;
+			}
+			private boolean less(Key v,Key w){
+				return v.compareTo(w)<0;
+			}
+			private static void exch(Comparable[] a,int i,int j){
+		    	Comparable t= a[i];a[i]=a[j];a[j]=t;    }
+			public static void main(String[] args){
+				UnorderedArrayMaxPQ<String> pq =new UnorderedArrayMaxPQ<String>(10);
+				pq.insert("this");
+				pq.insert("is");
+				pq.insert("a");
+				pq.insert("test");
+				//while(!pq.isEmpty())
+					StdOut.println(pq.delMax());
+			}
+}
+
+
+

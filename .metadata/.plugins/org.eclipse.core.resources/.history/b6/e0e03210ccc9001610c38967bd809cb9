@@ -1,0 +1,70 @@
+import edu.princeton.cs.algs4.MaxPQ;
+import edu.princeton.cs.algs4.StdOut;
+
+
+public class HeapMaxPQ<Key extends Comparable<Key>> {
+	private Key[] pq;
+	private int n;
+	public HeapMaxPQ(int max){
+		 pq= (Key[]) new Comparable[max+1];
+	}
+	public boolean IsEmpty(){
+		return n==0;
+		
+	}
+	public int size(){
+		return n;
+	}
+	/***********cord code*******************/
+	public void insert(Key w){
+	pq[++n]=w;
+	swim(n);
+	}
+	public Key delMax(){
+		Key maxKey=pq[1];
+		exch(pq,1,n);
+		sink(1);
+		pq[n]=null;
+		n--;
+		return maxKey;
+	}
+	
+	private void swim(int k){
+		while(k>1){
+			if(less(pq[k/2], pq[k])) // k>k/2
+				exch(pq, k, k/2);
+			k=k/2;
+		}
+	}
+	private void sink(int k){
+		int pmax;
+		while(k*2<=n){
+			pmax=k*2;
+			if(less(pq[k*2],pq[k*2+1])) pmax=k*2+1;// max is pq[j]
+			if(!less(pq[k],pq[pmax])) break;
+				exch(pq, k, pmax);
+			 k=pmax;
+		}
+	}
+	/**
+	 * @param args
+	 */
+	/****************help function*************/
+	private boolean less(Key v,Key w){
+		return v.compareTo(w)<0;
+	}
+	private static void exch(Comparable[] a,int i,int j){
+    	Comparable t= a[i];a[i]=a[j];a[j]=t;    }
+	/****************************/
+	public static void main(String[] args) {
+	        HeapMaxPQ<String> pq = new HeapMaxPQ<String>(10);
+	        pq.insert("this");
+	        pq.insert("is");
+	        pq.insert("a");
+	        pq.insert("test");
+	        while (!pq.IsEmpty())
+	            StdOut.println(pq.delMax());
+	    }
+	
+
+}
